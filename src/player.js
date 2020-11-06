@@ -4,13 +4,13 @@ class Player {
     this.playerTolken = playerTolken;
     this.playerWins = playerWins;
   }
-  saveWins(player){
-    localStorage.setItem("players", JSON.stringify(player));
+  saveWins(playerWins){
+    localStorage.setItem(`"${this.playerId}"`, JSON.stringify(playerWins));
   }
 
   retrieveWins(){
-    var parsePlayer = JSON.parse(localStorage.getItem("players"));
-    for (var i = 0; i < parsePlayer.length; i++){
+    var parsedPlayer = JSON.parse(localStorage.getItem(`"${this.playerId}"`));
+    for (var i = 0; i < parsedPlayer.length; i++){
       parsedPlayer[i].wins = this.playerWins;
     }
     return this.playerWins;
@@ -26,6 +26,3 @@ class Player {
 //
 // playerOne.retrieveWins();
 // playerTwo.retrieveWins();
-
-//currently only saving on player to storage, check back after building games.js
-//game.js needs a player array?
