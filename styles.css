@@ -1,0 +1,65 @@
+html {
+  height: 100%;
+  font-family: 'Grandstander', cursive;
+  font-size: 20px;
+  text-align: center;
+  background-color: grey;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  grid-auto-rows: 1fr, 4fr;
+  grid-template-areas:
+    "sidebar1 gamebox sidebar2"
+    "sidebar1 gameboard sidebar2";
+}
+
+.player-one {
+  height: 100%;
+  grid-area: sidebar1;
+}
+
+.game-area {
+  height: 100%;
+  grid-area: gamebox;
+}
+
+.player-two {
+  height: 100%;
+  grid-area: sidebar2;
+}
+
+.game-board {
+  height: 400px;
+  width: 400px;
+  margin: auto;
+  font-size: 80px;
+  background-color: black;
+  grid-area: gameboard;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.game-grid {
+  background-color: grey;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 11px;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 80px;
+}
+
+h3 {
+  font-size: 60px;
+}
