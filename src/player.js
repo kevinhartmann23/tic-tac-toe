@@ -1,23 +1,25 @@
 class Player {
   constructor(playerId){
-    this.playerId = playerId;
-    this.playerTolken = "";
-    this.playerWins = 0;
+    this.id = playerId;
+    this.tolken = "";
+    this.wins = 0;
+    this.turn = false;
+    this.moves = [];
 
     if(playerId === 1){
-      this.playerTolken = "&#x1f379"
+      this.tolken = "&#x1f379"
     } else {
-      this.playerTolken = "&#129449;"
+      this.tolken = "&#129449;"
     }
   }
-  saveWins(playerWins){
-    localStorage.setItem(`Player${this.playerId} Win Count`, JSON.stringify(this.playerWins));
+  saveWins(){
+    localStorage.setItem(`Player${this.id} Win Count`, JSON.stringify(this.wins));
   }
 
   retrieveWins(){
-    var parsedPlayer = JSON.parse(localStorage.getItem(`Player${this.playerId} Win Count`));
+    var parsedPlayer = JSON.parse(localStorage.getItem(`Player${this.id} Win Count`));
     for (var i = 0; i < parsedPlayer.length; i++){
-      parsedPlayer[i].wins = this.playerWins;
+      parsedPlayer[i].playerWins= this.wins;
     }
     return this.playerWins;
   }
