@@ -8,7 +8,6 @@ class Game {
     this.win = false;
     this.draw = false;
 
-
     this.winCombinations = [
             [1,2,3],
             [4,5,6],
@@ -19,7 +18,7 @@ class Game {
             [1,5,9],
             [3,5,7]
           ];
-  }
+  };
 
   selectPlayersTurn(){
     if(this.turnCount %2 == 0){
@@ -32,9 +31,7 @@ class Game {
     } else {
       this.turnCount = 0;
     }
-    console.log(`it's ${this.turn.token}'s turn`);
-    console.log("Turn Count Changed To", this.turnCount);
-  }
+  };
 
   recordPlayersTurn(selectedMove){
     var player = this.turn;
@@ -43,14 +40,14 @@ class Game {
         player.moves.push(selectedMove);
         this.possibleMoveValues.splice(this.possibleMoveValues.indexOf(selectedMove), 1);
         this.selectPlayersTurn();
+        this.checkBoardForWinOrDraw(player, player);
       } else {
         return player;
-        console.log("That move is already taken, please choose again!")
-      }
+        }
       }
     };
 
-  checkBoardForWin(player){
+  evaluateWin(player){
     for(var i = 0; i < this.winCombinations.length; i++){
       if((player.moves.indexOf(this.winCombinations[i][0])) >= 0) {
         if((player.moves.indexOf(this.winCombinations[i][1])) >= 0){
@@ -61,17 +58,26 @@ class Game {
             this.resetBoard();
           } else {
             this.win;
-          }
+            }
           }
         }
       };
     };
 
 
-  checkBoardForDraw(){
+  evaluteDraw(){
     if(this.possibleMoveValues.length === 0){
       this.draw = true;
       this.resetBoard();
+    }
+  };
+
+  checkBoardForWinOrDraw(playerOne, playerTwo){
+    if(this.turnCount >= 4){
+      this.evaluateWin(playerOne);
+      this.evaluateWin(playerTwo);
+    } else if (this.turnCount === 9){
+      this.evaluteDraw();
     }
   };
 
@@ -87,11 +93,5 @@ class Game {
       this.draw = false;
     }
   };
-}
 
-
-//Mock Game Information --
-var playerOne = new Player(1);
-var playerTwo = new Player(2);
-
-var newGame = new Game(playerOne, playerTwo);
+};
