@@ -5,6 +5,8 @@ class Game {
     this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
     playerOne.moves = [];
     playerTwo.moves = [];
+    this.win = false;
+    this.draw = false;
 
 
     this.winCombinations = [
@@ -47,8 +49,10 @@ class Game {
   }
 
   checkBoardForDraw(){
-    
-  }
+    if(this.possibleMoveValues.length === 0){
+      this.draw = true;
+    }
+  };
 
 
   resetBoard(){
