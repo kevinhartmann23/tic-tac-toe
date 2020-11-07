@@ -1,7 +1,11 @@
 class Game {
   constructor(playerOne, playerTwo){
+    this.turn = playerOne || playerTwo;
     this.turnCount = 0;
-    this.moves = [];
+    this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
+    playerOne.moves = [];
+    playerTwo.moves = [];
+
 
     this.winCombinations = [
             [1,2,3],
@@ -17,64 +21,58 @@ class Game {
 
   selectPlayersTurn(){
     if(this.turnCount %2 == 0){
-      playerOne.turn = true;
-      playerTwo.turn = false;
+      this.turn = playerOne;
     } else {
-      playerTwo.turn = true;
-      playerOne.turn = false;
+      this.turn = playerTwo;
     }
     if(this.turnCount <= 8){
       this.turnCount ++;
     } else {
       this.turnCount = 0;
     }
-    console.log(this.turnCount);
-    console.log(playerOne.turn);
-    console.log(playerTwo.turn);
+    console.log(`it's ${this.turn}'s turn`);
+    console.log("Turn Count Changed To", this.turnCount);
   }
 
-  checkBoardForWins(){
-
-
-    //iterate through player moves array, and compare to win winCombinations
-  }
-
-  checkBoardForDraw(playerOne, playerTwo){
-    if(this.moves.length === 8){
-      resetBoard();
-    } else {
-      checkBoardForWins();
+  recordPlayersTurn(selectedMove){
+    var player = this.turn;
+    for(var i = 0; i < this.possibleMoveValues.length; i++){
+      if(this.possibleMoveValues.includes(selectedMove)){
+        player.moves.push(selectedMove);
+        this.possibleMoveValues.splice(this.possibleMoveValues.indexOf(selectedMove), 1);
+      }
     }
-    //iterate through player moves array, if length is 9 === draw;
-    //reset playerMoves
+    console.log(player.moves);
+    console.log(this.possibleMoveValues);
   }
 
-  assignWinner(){
-    //call checkBoardForWins():
-    //If return is true -
-    //player.wins ++
-    //player.saveWins(player.id)
-    //reset playerMoves
+  checkBoardForDraw(){
+    
   }
+
 
   resetBoard(){
-    this.turnCount;
-    playerOne.moves;
-    playerTwo.moves;
-    playerOne.turn;
-    playerTwo.turn;
-    this.moves;
-    //empty all moves in both player arrays
-  }
-
-
-
-
+    this.turn = playerOne || playerTwo;
+    this.turnCount = 0;
+    this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
+    playerOne.moves = [];
+    playerTwo.moves = [];
+  };
 }
 
 
-
+//Mock Game Information --
 var playerOne = new Player(1);
 var playerTwo = new Player(2);
 
+// playerOne.playerMoves = [1,2,3,5]; //SHOULD WIN
+// playerTwo.playerMoves = [6,8,9]; //SHOULD REMAIN WINS=0
+
 var newGame = new Game(playerOne, playerTwo);
+
+
+//Questions for Mentor:
+//1) At first I have a this.players = [playerOne, playerTwo] in the constructor,
+//would this be helpful to track moves a little easier?
+
+//2) Will you psuedoCode winning conditions with me?

@@ -1,17 +1,16 @@
 class Player {
   constructor(playerId){
     this.id = playerId;
-    this.tolken = "";
+    this.token = "";
     this.wins = 0;
-    this.turn = false;
-    this.moves = [];
 
     if(playerId === 1){
-      this.tolken = "&#x1f379"
+      this.token = "X"
     } else {
-      this.tolken = "&#129449;"
+      this.token = "O"
     }
   }
+
   saveWins(){
     localStorage.setItem(`Player${this.id} Win Count`, JSON.stringify(this.wins));
   }
@@ -19,8 +18,8 @@ class Player {
   retrieveWins(){
     var parsedPlayer = JSON.parse(localStorage.getItem(`Player${this.id} Win Count`));
     for (var i = 0; i < parsedPlayer.length; i++){
-      parsedPlayer[i].playerWins= this.wins;
+      parsedPlayer[i].wins= this.wins;
     }
-    return this.playerWins;
+    return this.wins;
   }
 }
