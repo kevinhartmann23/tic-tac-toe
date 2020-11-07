@@ -3,8 +3,8 @@ class Game {
     this.turn = playerOne || playerTwo;
     this.turnCount = 0;
     this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
-    playerOne.moves = [];
-    playerTwo.moves = [];
+    playerOne.moves = [1,2,3,5];
+    playerTwo.moves = [6,8,9];
     this.win = false;
     this.draw = false;
 
@@ -49,12 +49,28 @@ class Game {
   }
 
   checkBoardForWin(player){
+    var winningCombination = [];
     for(var i = 0; i < this.winCombinations.length; i++){
-        var winningCombination = this.winCombinations[i];
-      for(var j = 0; j < winningCombination.length; j++){
-          console.log(winningCombination[j]);
+      debugger;
+      for(var j = 0; j < this.winCombinations[i].length; j++){
+        if(player.moves.includes(this.winCombinations[i][j])){
+          var combinationNumber = this.winCombinations[i][j];
         }
-      }
+        if(!winningCombination.includes(combinationNumber)){
+            winningCombination.push(combinationNumber);
+        }
+        if(this.winCombinations[i] !== winningCombination){
+            this.win;
+        } else {
+          return this.win = true;
+        }
+          }
+          }
+      console.log(winningCombination);
+      console.log(player);
+      console.log(this.win);
+      //CLOSE! Need to find a way to break loop when winning winningCombination matches winCombinations
+      // I may need tostring? right now my loop is giving me exactly what the player.moves array is.
    };
 
   checkBoardForDraw(){
@@ -77,9 +93,6 @@ class Game {
 //Mock Game Information --
 var playerOne = new Player(1);
 var playerTwo = new Player(2);
-
-playerOne.playerMoves = [1,2,3,5]; //SHOULD WIN
-playerTwo.playerMoves = [6,8,9]; //SHOULD REMAIN WINS=0
 
 var newGame = new Game(playerOne, playerTwo);
 
