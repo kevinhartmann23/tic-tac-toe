@@ -36,6 +36,17 @@ class Game {
     console.log("Turn Count Changed To", this.turnCount);
   }
 
+  recordPlayersTurn(selectedMove){
+    var player = this.turn;
+    for(var i = 0; i < this.possibleMoveValues.length; i++){
+      if(this.possibleMoveValues.includes(selectedMove)){
+        player.moves.push(selectedMove);
+        this.possibleMoveValues.splice(this.possibleMoveValues.indexOf(selectedMove), 1);
+        }
+      }
+      this.selectPlayersTurn();
+    };
+
   checkBoardForWin(player){
     for(var i = 0; i < this.winCombinations.length; i++){
       if((player.moves.indexOf(this.winCombinations[i][0])) >= 0) {
