@@ -43,6 +43,7 @@ class Game {
           if((player.moves.indexOf(this.winCombinations[i][2])) >= 0){
             this.win = true;
             player.wins ++;
+            player.saveWins();
             this.resetBoard();
           } else {
             this.win;
