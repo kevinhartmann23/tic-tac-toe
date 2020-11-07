@@ -3,8 +3,8 @@ class Game {
     this.turn = playerOne || playerTwo;
     this.turnCount = 0;
     this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
-    playerOne.moves = [1,2,5];
-    playerTwo.moves = [6,9,3,8];
+    playerOne.moves = [4,6,9,5];
+    playerTwo.moves = [2,3,7,8];
     this.win = false;
     this.draw = false;
 
@@ -38,15 +38,15 @@ class Game {
 
   checkBoardForWin(player){
     for(var i = 0; i < this.winCombinations.length; i++){
-      if(player.moves.indexOf(this.winCombinations[i][0])) {
-        console.log(player.moves.indexOf(this.winCombinations[i][0]))
-        if(player.moves.indexOf(this.winCombinations[i][1])){
-          console.log(player.moves.indexOf(this.winCombinations[i][1]))
-          if(player.moves.indexOf(this.winCombinations[i][2])){
-            console.log(player.moves.indexOf(this.winCombinations[i][2]))
-            player.wins++;
+      if((player.moves.indexOf(this.winCombinations[i][0])) >= 0) {
+        if((player.moves.indexOf(this.winCombinations[i][1])) >= 0){
+          if((player.moves.indexOf(this.winCombinations[i][2])) >= 0){
             this.win = true;
-            }
+            player.wins ++;
+            this.resetBoard();
+          } else {
+            this.win;
+          }
           }
         }
       };
@@ -56,19 +56,22 @@ class Game {
   checkBoardForDraw(){
     if(this.possibleMoveValues.length === 0){
       this.draw = true;
+      this.resetBoard();
     }
   };
 
 
   resetBoard(){
-    this.turn = playerOne || playerTwo;
-    this.turnCount = 0;
-    this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
-    playerOne.moves = [];
-    playerTwo.moves = [];
+    if(this.win || this.draw === true){
+      this.turn = playerOne || playerTwo;
+      this.turnCount = 0;
+      this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
+      playerOne.moves = [];
+      playerTwo.moves = [];
+      this.win = false;
+      this.draw = false;
+    }
   };
-
-
 }
 
 
@@ -77,9 +80,3 @@ var playerOne = new Player(1);
 var playerTwo = new Player(2);
 
 var newGame = new Game(playerOne, playerTwo);
-
-//Questions for Mentor:
-//1) At first I have a this.players = [playerOne, playerTwo] in the constructor,
-//would this be helpful to track moves a little easier?
-
-//2) Will you psuedoCode winning conditions with me?
