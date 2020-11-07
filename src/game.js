@@ -3,8 +3,8 @@ class Game {
     this.turn = playerOne || playerTwo;
     this.turnCount = 0;
     this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
-    playerOne.moves = [4,6,9,5];
-    playerTwo.moves = [2,3,7,8];
+    playerOne.moves = [];
+    playerTwo.moves = [];
     this.win = false;
     this.draw = false;
 
@@ -32,7 +32,7 @@ class Game {
     } else {
       this.turnCount = 0;
     }
-    console.log(`it's ${this.turn}'s turn`);
+    console.log(`it's ${this.turn.token}'s turn`);
     console.log("Turn Count Changed To", this.turnCount);
   }
 
@@ -42,9 +42,12 @@ class Game {
       if(this.possibleMoveValues.includes(selectedMove)){
         player.moves.push(selectedMove);
         this.possibleMoveValues.splice(this.possibleMoveValues.indexOf(selectedMove), 1);
-        }
+        this.selectPlayersTurn();
+      } else {
+        return player;
+        console.log("That move is already taken, please choose again!")
       }
-      this.selectPlayersTurn();
+      }
     };
 
   checkBoardForWin(player){
