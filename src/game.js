@@ -48,6 +48,15 @@ class Game {
     console.log(this.possibleMoveValues);
   }
 
+  checkBoardForWin(player){
+    for(var i = 0; i < this.winCombinations.length; i++){
+        var winningCombination = this.winCombinations[i];
+      for(var j = 0; j < winningCombination.length; j++){
+          console.log(winningCombination[j]);
+        }
+      }
+   };
+
   checkBoardForDraw(){
     if(this.possibleMoveValues.length === 0){
       this.draw = true;
@@ -69,8 +78,8 @@ class Game {
 var playerOne = new Player(1);
 var playerTwo = new Player(2);
 
-// playerOne.playerMoves = [1,2,3,5]; //SHOULD WIN
-// playerTwo.playerMoves = [6,8,9]; //SHOULD REMAIN WINS=0
+playerOne.playerMoves = [1,2,3,5]; //SHOULD WIN
+playerTwo.playerMoves = [6,8,9]; //SHOULD REMAIN WINS=0
 
 var newGame = new Game(playerOne, playerTwo);
 
