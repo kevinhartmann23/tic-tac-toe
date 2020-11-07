@@ -47,7 +47,10 @@ class Game {
   }
 
   checkBoardForDraw(){
-    
+    //Only possibility for a draw is if there are possibleMoveValues remaining
+    //iterate through possibleMoveValues
+    //if possibleMoveValues.length = 0
+    //this.draw = true;
   }
 
 
