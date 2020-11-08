@@ -39,12 +39,10 @@ class Game {
       if(this.possibleMoveValues.includes(selectedMove)){
         player.moves.push(selectedMove);
         this.possibleMoveValues.splice(this.possibleMoveValues.indexOf(selectedMove), 1);
-        this.selectPlayersTurn();
         this.checkBoardForWinOrDraw(player, player);
-      } else {
-        return player;
-        }
       }
+      }
+      this.selectPlayersTurn();
     };
 
   evaluateWin(player){

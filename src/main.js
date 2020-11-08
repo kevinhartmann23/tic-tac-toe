@@ -26,12 +26,13 @@ function clickGrid(event){
   gameGrid.innerText = "";
   if(event.target.closest(".game-board")){
     for(var i = 0; i < gameGrid.length; i++){
-      if(parseInt(event.target.closest("div").id) == i + 1){
+      var matchIdToMove = i + 1;
+      if(parseInt(event.target.closest("div").id) == matchIdToMove){
         gameGrid[i].innerText = `${game.turn.token}`;
-        game.recordPlayersTurn(parseInt(event.target.closest("div").id));
+        game.recordPlayersTurn(matchIdToMove);
+      }
       }
     }
-  }
   gameTitle.innerText = `It's ${game.turn.token}'s turn`;
 };
 
@@ -42,6 +43,6 @@ function displayWins(){
 
 function loadPage(){
   game.resetBoard();
-  connectBoardToGame();
   game.selectPlayersTurn();
+  connectBoardToGame();
 };
