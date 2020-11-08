@@ -18,7 +18,7 @@ class Player {
   retrieveWins(){
     var parsedPlayer = JSON.parse(localStorage.getItem(`Player${this.id} Win Count`));
     for (var i = 0; i < parsedPlayer.length; i++){
-      parsedPlayer[i].wins = this.wins;
+      this.wins = parsedPlayer[i].wins;
     }
     return this.wins;
   }

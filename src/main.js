@@ -25,7 +25,7 @@ function connectBoardToGame() {
 };
 
 function clickGrid(event){
-  event.preventDefault();
+  // event.preventDefault();
   // gameGrid.innerText = "";
   if(event.target.closest(".game-board")){
     for(var i = 0; i < gameGrid.length; i++){
@@ -38,6 +38,7 @@ function clickGrid(event){
     }
   };
   gameTitle.innerText = `It's ${game.turn.token}'s turn`;
+  checkGameForResults();
 };
 
 function identifyGameResults(){
@@ -47,11 +48,14 @@ function identifyGameResults(){
   if(game.draw === true){
     gameTitle.innerText = `It's a draw!`;
   }
-  //check for game.win or game.draw
-  //change gametitle to (win result or draw result)
-  //setTimeOut --
-}
+};
 
+function checkGameForResults(){
+  if((game.win === true) || (game.draw === true)){
+    var displayResults = setTimeout(connectBoardToGame, 2000);
+    identifyGameResults();
+  }
+};
 
 
 function displayWins(){
@@ -61,4 +65,5 @@ function displayWins(){
 
 function loadPage(){
   connectBoardToGame();
+  displayWins();
 };
