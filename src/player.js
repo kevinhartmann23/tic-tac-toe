@@ -5,9 +5,9 @@ class Player {
     this.wins = 0;
 
     if(playerId === 1){
-      this.token = "X"
+      this.token = '🍹'
     } else {
-      this.token = "O"
+      this.token = '🦩'
     }
   }
 
