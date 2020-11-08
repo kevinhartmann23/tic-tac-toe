@@ -6,6 +6,7 @@ class Game {
     playerOne.moves = [];
     playerTwo.moves = [];
     this.win = false;
+    this.winner = this.winner;
     this.draw = false;
 
     this.winCombinations = [
@@ -52,6 +53,7 @@ class Game {
         if((player.moves.indexOf(this.winCombinations[i][1])) >= 0){
           if((player.moves.indexOf(this.winCombinations[i][2])) >= 0){
             this.win = true;
+            this.winner = player;
             player.wins ++;
           } else {
             this.win;
@@ -63,7 +65,7 @@ class Game {
 
 
   evaluteDraw(){
-    if(this.possibleMoveValues.length === 0){
+    if((this.possibleMoveValues.length === 0) && (this.win === false)){
       this.draw = true;
     }
   };
@@ -72,7 +74,6 @@ class Game {
     player = this.turn;
     if(this.turnCount >= 4){
       this.evaluateWin(player);
-    } else if (this.turnCount >= 9){
       this.evaluteDraw();
     }
     player.saveWins();
@@ -80,7 +81,6 @@ class Game {
 
 
   resetBoard(){
-    if(this.win || this.draw === true){
       this.turn = playerOne || playerTwo;
       this.turnCount = 0;
       this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
@@ -88,7 +88,6 @@ class Game {
       playerTwo.moves = [];
       this.win = false;
       this.draw = false;
-    }
   };
 
 };

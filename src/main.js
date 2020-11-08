@@ -4,7 +4,6 @@ var playerTwoWins = document.querySelector("#player-two-wins");
 var gameTitle = document.querySelector("#turn-title");
 var gameGrid = document.querySelectorAll(".game-grid");
 
-
 var playerOne = new Player(1);
 var playerTwo = new Player(2);
 var game = new Game(playerOne, playerTwo);
@@ -12,19 +11,22 @@ var game = new Game(playerOne, playerTwo);
 //Tic Tac Toe Event Listeners
 window.addEventListener("load", loadPage);
 
-//Global
 //Tic Tac Toe Functions & Event Handlers 👇
 
 function connectBoardToGame() {
     for(var i = 0; i < gameGrid.length; i++){
       gameGrid[i].addEventListener("click", clickGrid);
+      gameGrid[i].innerText = "";
     }
+    displayWins();
+    game.resetBoard();
+    game.selectPlayersTurn();
+    gameTitle.innerText = `It's ${game.turn.token}'s turn`;
 };
 
 function clickGrid(event){
-  event.preventDefault();
-  gameGrid.innerText = "";
-
+  // event.preventDefault();
+  // gameGrid.innerText = "";
   if(event.target.closest(".game-board")){
     for(var i = 0; i < gameGrid.length; i++){
       var matchIdToMove = i + 1;
@@ -36,7 +38,25 @@ function clickGrid(event){
     }
   };
   gameTitle.innerText = `It's ${game.turn.token}'s turn`;
+  checkGameForResults();
 };
+
+function identifyGameResults(){
+  if(game.win === true){
+    gameTitle.innerText = `${game.winner.token} wins!`;
+  };
+  if(game.draw === true){
+    gameTitle.innerText = `It's a draw!`;
+  }
+};
+
+function checkGameForResults(){
+  if((game.win === true) || (game.draw === true)){
+    var displayResults = setTimeout(connectBoardToGame, 2000);
+    identifyGameResults();
+  }
+};
+
 
 function displayWins(){
   playerOneWins.innerText = `${playerOne.retrieveWins()} wins`;
@@ -44,7 +64,6 @@ function displayWins(){
 };
 
 function loadPage(){
-  game.resetBoard();
-  game.selectPlayersTurn();
   connectBoardToGame();
+  displayWins();
 };
