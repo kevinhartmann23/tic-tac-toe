@@ -80,7 +80,6 @@ class Game {
 
 
   resetBoard(){
-    if(this.win || this.draw === true){
       this.turn = playerOne || playerTwo;
       this.turnCount = 0;
       this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
@@ -88,7 +87,6 @@ class Game {
       playerTwo.moves = [];
       this.win = false;
       this.draw = false;
-    }
   };
 
 };

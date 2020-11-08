@@ -4,7 +4,6 @@ var playerTwoWins = document.querySelector("#player-two-wins");
 var gameTitle = document.querySelector("#turn-title");
 var gameGrid = document.querySelectorAll(".game-grid");
 
-
 var playerOne = new Player(1);
 var playerTwo = new Player(2);
 var game = new Game(playerOne, playerTwo);
@@ -12,19 +11,21 @@ var game = new Game(playerOne, playerTwo);
 //Tic Tac Toe Event Listeners
 window.addEventListener("load", loadPage);
 
-//Global
 //Tic Tac Toe Functions & Event Handlers 👇
 
 function connectBoardToGame() {
     for(var i = 0; i < gameGrid.length; i++){
       gameGrid[i].addEventListener("click", clickGrid);
+      gameGrid[i].innerText = "";
     }
+    game.resetBoard();
+    game.selectPlayersTurn();
+    gameTitle.innerText = `It's ${game.turn.token}'s turn`;
 };
 
 function clickGrid(event){
   event.preventDefault();
-  gameGrid.innerText = "";
-
+  // gameGrid.innerText = "";
   if(event.target.closest(".game-board")){
     for(var i = 0; i < gameGrid.length; i++){
       var matchIdToMove = i + 1;
@@ -38,13 +39,13 @@ function clickGrid(event){
   gameTitle.innerText = `It's ${game.turn.token}'s turn`;
 };
 
+
+
 function displayWins(){
   playerOneWins.innerText = `${playerOne.retrieveWins()} wins`;
   playerTwoWins.innerText = `${playerTwo.retrieveWins()} wins`;
 };
 
 function loadPage(){
-  game.resetBoard();
-  game.selectPlayersTurn();
   connectBoardToGame();
 };
