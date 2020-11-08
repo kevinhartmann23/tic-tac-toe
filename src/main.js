@@ -18,6 +18,7 @@ function connectBoardToGame() {
       gameGrid[i].addEventListener("click", clickGrid);
       gameGrid[i].innerText = "";
     }
+    displayWins();
     game.resetBoard();
     game.selectPlayersTurn();
     gameTitle.innerText = `It's ${game.turn.token}'s turn`;
@@ -38,6 +39,18 @@ function clickGrid(event){
   };
   gameTitle.innerText = `It's ${game.turn.token}'s turn`;
 };
+
+function identifyGameResults(){
+  if(game.win === true){
+    gameTitle.innerText = `${game.winner.token} wins!`;
+  };
+  if(game.draw === true){
+    gameTitle.innerText = `It's a draw!`;
+  }
+  //check for game.win or game.draw
+  //change gametitle to (win result or draw result)
+  //setTimeOut --
+}
 
 
 
