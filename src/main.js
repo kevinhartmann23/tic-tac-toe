@@ -24,15 +24,17 @@ function connectBoardToGame() {
 function clickGrid(event){
   event.preventDefault();
   gameGrid.innerText = "";
+
   if(event.target.closest(".game-board")){
     for(var i = 0; i < gameGrid.length; i++){
       var matchIdToMove = i + 1;
       if(parseInt(event.target.closest("div").id) == matchIdToMove){
         gameGrid[i].innerText = `${game.turn.token}`;
+        gameGrid[i].removeEventListener("click", clickGrid);
         game.recordPlayersTurn(matchIdToMove);
       }
-      }
     }
+  };
   gameTitle.innerText = `It's ${game.turn.token}'s turn`;
 };
 

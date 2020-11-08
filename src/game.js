@@ -26,7 +26,7 @@ class Game {
     } else {
       this.turn = playerTwo;
     }
-    if(this.turnCount <= 8){
+    if(this.turnCount <= 9){
       this.turnCount ++;
     } else {
       this.turnCount = 0;
@@ -39,9 +39,10 @@ class Game {
       if(this.possibleMoveValues.includes(selectedMove)){
         player.moves.push(selectedMove);
         this.possibleMoveValues.splice(this.possibleMoveValues.indexOf(selectedMove), 1);
-        this.checkBoardForWinOrDraw(player, player);
+        // this.checkBoardForWinOrDraw(player, player);
       }
       }
+      this.checkBoardForWinOrDraw(player);
       this.selectPlayersTurn();
     };
 
@@ -52,11 +53,9 @@ class Game {
           if((player.moves.indexOf(this.winCombinations[i][2])) >= 0){
             this.win = true;
             player.wins ++;
-            player.saveWins();
-            this.resetBoard();
           } else {
             this.win;
-            }
+          }
           }
         }
       };
@@ -66,17 +65,17 @@ class Game {
   evaluteDraw(){
     if(this.possibleMoveValues.length === 0){
       this.draw = true;
-      this.resetBoard();
     }
   };
 
-  checkBoardForWinOrDraw(playerOne, playerTwo){
+  checkBoardForWinOrDraw(player){
+    player = this.turn;
     if(this.turnCount >= 4){
-      this.evaluateWin(playerOne);
-      this.evaluateWin(playerTwo);
-    } else if (this.turnCount === 9){
+      this.evaluateWin(player);
+    } else if (this.turnCount >= 9){
       this.evaluteDraw();
     }
+    player.saveWins();
   };
 
 
