@@ -131,7 +131,7 @@ _Notice there is a button added... This button is currently disabled, while play
 #### Declaring a Win or Draw
 _After a win occurs the message declaring which users turn it is, is changed to declaring a user win!_
 
-![WIN!]((./assets/functionality-snap-shots/snap3-win.png)
+![WIN!](./assets/functionality-snap-shots/snap3-win.png)
 
 _When a win is declared, the user's win count increases and the game resets. The win count for each user remains on the screen after each game and a page refresh. Notice: The reset button has changed colors and is now clickable!_
 
