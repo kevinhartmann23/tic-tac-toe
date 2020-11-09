@@ -18,15 +18,12 @@ function connectBoardToGame() {
       gameGrid[i].addEventListener("click", clickGrid);
       gameGrid[i].innerText = "";
     }
-    displayWins();
     game.resetBoard();
     game.selectPlayersTurn();
     gameTitle.innerText = `It's ${game.turn.token}'s turn`;
 };
 
 function clickGrid(event){
-  // event.preventDefault();
-  // gameGrid.innerText = "";
   if(event.target.closest(".game-board")){
     for(var i = 0; i < gameGrid.length; i++){
       var matchIdToMove = i + 1;
@@ -53,10 +50,10 @@ function identifyGameResults(){
 function checkGameForResults(){
   if((game.win === true) || (game.draw === true)){
     var displayResults = setTimeout(connectBoardToGame, 2000);
+    displayWins();
     identifyGameResults();
   }
 };
-
 
 function displayWins(){
   playerOneWins.innerText = `${playerOne.retrieveWins()} wins`;
@@ -65,5 +62,4 @@ function displayWins(){
 
 function loadPage(){
   connectBoardToGame();
-  displayWins();
 };
