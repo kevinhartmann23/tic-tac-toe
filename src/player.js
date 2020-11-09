@@ -21,5 +21,6 @@ class Player {
       this.wins = parsedPlayer[i].wins;
     }
     return this.wins;
-  }
+  };
+  
 }
