@@ -9,7 +9,7 @@ var playerTwo = new Player(2);
 var game = new Game(playerOne, playerTwo);
 
 //Tic Tac Toe Event Listeners
-window.addEventListener("load", loadPage);
+window.addEventListener("load", connectBoardToGame);
 
 //Tic Tac Toe Functions & Event Handlers 👇
 
@@ -65,8 +65,4 @@ function checkGameForResults(){
 function displayWins(){
   playerOneWins.innerText = `${playerOne.retrieveWins()} wins`;
   playerTwoWins.innerText = `${playerTwo.retrieveWins()} wins`;
-};
-
-function loadPage(){
-  connectBoardToGame();
 };
