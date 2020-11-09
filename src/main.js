@@ -14,6 +14,7 @@ window.addEventListener("load", connectBoardToGame);
 //Tic Tac Toe Functions & Event Handlers 👇
 
 function connectBoardToGame() {
+    displayWins();
     for(var i = 0; i < gameGrid.length; i++){
       gameGrid[i].addEventListener("click", clickGrid);
       gameGrid[i].innerText = "";
