@@ -95,4 +95,23 @@ Breaking out my Javascript code into three files, helped with keeping the game f
     - `checkGameForResults`: _identifies if there was a win or draw, and displays message to user based on outcome, after that there is a timeOut that resets the board_
     - `displayWins`: _updates users view of wins, based on the record kept in local localStorage_
 
-### Challenges: Oh boy, where to start....
+### Challenges: _Oh boy, where to start...._
+- **Game Logic**
+  - Taking the time to figure out the game logic, was definitely a puzzle. It was something I enjoyed doing, but took a fair amount of time to apply to that logic to code.
+- **Learning to test my code and data model, without DOM**
+  - The basic concept of this is something that I was getting the hang of prior to starting this project but applying ways to test my code was proven to be a little more difficult this time around.
+  - Hard coding for instant results on code functionality helped, but presented a little more struggle once moving into DOM manipulation.
+- **Comparing player moves to win combinations**
+  - This was my largest struggle, I spent a lot of time trying to make this method work in the `game.js` file. I found myself researching and pseudocoding 10 different ideas of how I could make this work. I started to mix up and confuse each idea or strategy, causing the time spent on this merthod to take up a lot more time than I had hoped for.
+  - When using MDN for prototype array methods, I was more focused on finding an answer and moving on. I didn't fully ready or test out the article I was looking at before trying to code with it. For example, I have used `.indexOf()` a fair amount of times before.. but not to its full potential. Having read the MDN information on it in full before trying to make it work would have led me to a working method much, much sooner.
+
+### Wins & Reflections!
+- **Completion and additional functionality**
+  - At the beginning of this project, I had severe imposter syndrome going on. Being able to work through those thoughts and feeling and provide an end product I am proud of is HUGE for me.
+- **Time & Task Management**
+  - I used gitHub projects every step of the way. Usually, I build one out but forget to reference it throughout my project. Taking the time to actually keep it updated proved to be super helpful!
+  - Setting daily goals helped me organize my time and thoughts, and kept me on track and where I want to be.
+- **Planning & PsuedoCoding**
+  - This was the first time I really spent a good amount of time planning. It made a huge difference in my thought process and my productivity.
+
+### Functionality
