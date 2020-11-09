@@ -1,8 +1,13 @@
-html {
-  height: 100vh;
+*,
+*:after,
+*:before {
   font-family: 'Grandstander', cursive;
   font-size: 1em;
   text-align: center;
+}
+
+html {
+  height: 100vh;
   background-image: url('./assets/background-palm-trees.jpg');
   background-repeat: no-repeat;
   background-size: 100% 110%;
@@ -17,7 +22,7 @@ body {
     "sidebar1 gamebox sidebar2"
 }
 
-/*Player Side Bar Section Styles*/
+/*~~~~~~Player Sidebars~~~~~~*/
 .player-one {
   grid-area: sidebar1;
 }
@@ -34,7 +39,15 @@ h3 {
   font-size: 5em;
 }
 
-/*Game Area Section Styling*/
+.reset-wins {
+  border-radius: .5em;
+  height: 3em;
+  width: 10em;
+  background: linear-gradient(#e8d3a3, #ffa633);
+  font-size: 1em;
+}
+
+/*~~~~~~Game Area~~~~~~*/
 
 .game-area {
   background-color: white;
