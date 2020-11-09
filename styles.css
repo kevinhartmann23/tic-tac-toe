@@ -32,6 +32,7 @@ h2 {
 
 h3 {
   font-size: 5em;
+  margin-bottom: 20px;
 }
 
 /*Game Area Section Styling*/
@@ -64,4 +65,15 @@ h3 {
 h1 {
   font-size: 3.5em;
   margin: 75px;
+}
+
+/*Button Styling - Added Feature*/
+
+.reset-wins {
+  border-radius: .5em;
+  height: 3em;
+  width: 10em;
+  background: linear-gradient(#e8d3a3, #ffa633);
+  font-size: 1em;
+  font-family: inherit;
 }
