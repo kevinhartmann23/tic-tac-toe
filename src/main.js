@@ -25,6 +25,7 @@ function connectBoardToGame() {
       gameGrid[i].innerText = "";
     }
     game.resetBoard();
+    toggleResetWinsButton();
     game.selectPlayersTurn();
     gameTitle.innerText = `It's ${game.turn.token}'s turn`;
 };
@@ -35,8 +36,18 @@ function resetWinCount(event){
     displayWins();
   }
   if(event.target === resetWinsPlayerTwo){
-      playerTwo.resetWins();
-      displayWins();
+    playerTwo.resetWins();
+    displayWins();
+  }
+};
+
+function toggleResetWinsButton(){
+  if(game.possibleMoveValues.length === 9){
+    resetWinsPlayerOne.disabled = false;
+    resetWinsPlayerTwo.disabled = false;
+  } else {
+    resetWinsPlayerOne.disabled = true;
+    resetWinsPlayerTwo.disabled = true;
   }
 };
 
@@ -71,6 +82,7 @@ function identifyGameResults(){
 };
 
 function checkGameForResults(){
+  toggleResetWinsButton();
   if((game.win === true) || (game.draw === true)){
     var displayResults = setTimeout(connectBoardToGame, 2500);
     disableGrid();
