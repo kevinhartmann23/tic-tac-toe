@@ -48,6 +48,10 @@ h3 {
   font-size: 1em;
 }
 
+.reset-wins:disabled{
+  background: linear-gradient(#4fb2aa, #e8d3a3);
+}
+
 /*~~~~~~Game Area~~~~~~*/
 
 .game-area {
