@@ -20,4 +20,9 @@ class Player {
     return this.wins = parsedPlayer;
   };
 
+  resetWins(){
+    this.wins = 0;
+    localStorage.setItem(`Player${this.id} Win Count`, JSON.stringify(this.wins));
+  }
+
 }

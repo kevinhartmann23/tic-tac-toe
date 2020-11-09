@@ -3,6 +3,9 @@ var playerOneWins = document.querySelector("#player-one-wins");
 var playerTwoWins = document.querySelector("#player-two-wins");
 var gameTitle = document.querySelector("#turn-title");
 var gameGrid = document.querySelectorAll(".game-grid");
+var resetWinsPlayerOne = document.querySelector(".reset-player-one");
+var resetWinsPlayerTwo= document.querySelector(".reset-player-two");
+
 
 var playerOne = new Player(1);
 var playerTwo = new Player(2);
@@ -10,6 +13,8 @@ var game = new Game(playerOne, playerTwo);
 
 //Tic Tac Toe Event Listeners
 window.addEventListener("load", connectBoardToGame);
+resetWinsPlayerOne.addEventListener("click", resetWinCount);
+resetWinsPlayerTwo.addEventListener("click", resetWinCount);
 
 //Tic Tac Toe Functions & Event Handlers 👇
 
@@ -22,6 +27,17 @@ function connectBoardToGame() {
     game.resetBoard();
     game.selectPlayersTurn();
     gameTitle.innerText = `It's ${game.turn.token}'s turn`;
+};
+
+function resetWinCount(event){
+  if(event.target === resetWinsPlayerOne){
+    playerOne.resetWins();
+    displayWins();
+  }
+  if(event.target === resetWinsPlayerTwo){
+      playerTwo.resetWins();
+      displayWins();
+  }
 };
 
 function clickGrid(event){
