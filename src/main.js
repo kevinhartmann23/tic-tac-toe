@@ -38,6 +38,12 @@ function clickGrid(event){
   checkGameForResults();
 };
 
+function disableGrid(){
+  for(var i = 0; i < gameGrid.length; i++){
+    gameGrid[i].removeEventListener("click", clickGrid);
+  }
+};
+
 function identifyGameResults(){
   if(game.win === true){
     gameTitle.innerText = `${game.winner.token} wins!`;
@@ -49,7 +55,8 @@ function identifyGameResults(){
 
 function checkGameForResults(){
   if((game.win === true) || (game.draw === true)){
-    var displayResults = setTimeout(connectBoardToGame, 2000);
+    var displayResults = setTimeout(connectBoardToGame, 2500);
+    disableGrid();
     displayWins();
     identifyGameResults();
   }
