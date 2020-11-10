@@ -44,3 +44,5 @@ _in detail_
     - `identifyGameResults`: _checks for wins/draws and displays results to users_
     - `checkGameForResults`: _identifies if there was a win or draw, and displays message to user based on outcome, after that there is a timeOut that resets the board_
     - `displayWins`: _updates users view of wins, based on the record kept in local localStorage_
+    
+[return to main page](https://github.com/kevinhartmann23/tic-tac-toe)
