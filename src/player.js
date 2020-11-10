@@ -1,11 +1,11 @@
 class Player {
   constructor(playerId){
     this.id = playerId;
-    this.token = '';
+    this.token = '🍹' || '🦩';
     this.wins = 0;
 
     if (playerId === 1){
-      this.token = '🍹'
+      this.token;
     } else {
       this.token = '🦩'
     };

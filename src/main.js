@@ -1,20 +1,22 @@
-//Tic Tac Toe Board Query Selectors and Global Variables
+//Tic Tac Toe Board Query Selectors and Global Variables 👇
+
 var playerOneWins = document.querySelector("#player-one-wins");
 var playerTwoWins = document.querySelector("#player-two-wins");
 var gameTitle = document.querySelector("#turn-title");
 var gameGrid = document.querySelectorAll(".game-grid");
-var resetWinsPlayerOne = document.querySelector(".reset-player-one");
-var resetWinsPlayerTwo= document.querySelector(".reset-player-two");
+var resetWinsPlayerOneButton = document.querySelector(".reset-player-one");
+var resetWinsPlayerTwoButton= document.querySelector(".reset-player-two");
 
 
 var playerOne = new Player(1);
 var playerTwo = new Player(2);
 var game = new Game(playerOne, playerTwo);
 
-//Tic Tac Toe Event Listeners
+//Tic Tac Toe Event Listeners 👇
+
 window.addEventListener("load", connectBoardToGame);
-resetWinsPlayerOne.addEventListener("click", resetWinCount);
-resetWinsPlayerTwo.addEventListener("click", resetWinCount);
+resetWinsPlayerOneButton.addEventListener("click", resetWinCount);
+resetWinsPlayerTwoButton.addEventListener("click", resetWinCount);
 
 //Tic Tac Toe Functions & Event Handlers 👇
 
@@ -31,11 +33,11 @@ function connectBoardToGame() {
 };
 
 function resetWinCount(event){
-  if (event.target === resetWinsPlayerOne){
+  if (event.target === resetWinsPlayerOneButton){
     playerOne.resetWins();
     displayWins();
   };
-  if (event.target === resetWinsPlayerTwo){
+  if (event.target === resetWinsPlayerTwoButton){
     playerTwo.resetWins();
     displayWins();
   };
@@ -43,11 +45,11 @@ function resetWinCount(event){
 
 function toggleResetWinsButton(){
   if (game.possibleMoveValues.length === 9){
-    resetWinsPlayerOne.disabled = false;
-    resetWinsPlayerTwo.disabled = false;
+    resetWinsPlayerOneButton.disabled = false;
+    resetWinsPlayerTwoButton.disabled = false;
   } else {
-    resetWinsPlayerOne.disabled = true;
-    resetWinsPlayerTwo.disabled = true;
+    resetWinsPlayerOneButton.disabled = true;
+    resetWinsPlayerTwoButton.disabled = true;
   };
 };
 

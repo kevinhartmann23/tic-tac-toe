@@ -27,7 +27,7 @@ selectPlayersTurn(){
   } else {
     this.turn = playerTwo;
   };
-  if (this.turnCount <= 9){
+  if (this.turnCount <= 8){
     this.turnCount ++;
   } else {
     this.turnCount = 0;
@@ -70,7 +70,7 @@ evaluteDraw(){
 
 checkBoardForWinOrDraw(player){
   player = this.turn;
-  if (this.turnCount >= 4){
+  if (this.turnCount >= 5){
     this.evaluateWin(player);
     this.evaluteDraw();
   }
@@ -81,7 +81,7 @@ checkBoardForWinOrDraw(player){
 resetBoard(){
   this.turn = playerOne || playerTwo;
   this.turnCount = 0;
-  this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
+  this.possibleMoveValues = [1,2,3,4,5,6,7,8,9];
   playerOne.moves = [];
   playerTwo.moves = [];
   this.win = false;
