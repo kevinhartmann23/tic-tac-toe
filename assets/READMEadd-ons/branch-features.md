@@ -22,4 +22,4 @@ _a small description of each branch's features_
 - feature/js-final-refactor: _refactoring prior to submission, checking for any errors, style guide reference, naming conventions, etc._
 - feature/css-animations: _added small animations for better user experience_
 
-[return to README](./README.md)
+[return to main page](https://github.com/kevinhartmann23/tic-tac-toe)
