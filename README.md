@@ -1,6 +1,30 @@
 # Tic-Tac-Toe
+### Turing School - Mod1 Final Solo Project
+_By Kevin Hartmann (2010 Front End)_
 
-## A Trip Down Memory Lane...
+
+## Table of Contents
+[Introduction](##A%20Trip%20Down%20Memory%20Lane)
+    - [Contributors](###Contributors)
+    - [Project Learning Goals](###Project%20Goals)
+    - [Project Expectations](###Project%20Expectations)
+    - [Technologies Used](###Technologies%20Used)
+[Code Architecture & Branch Features](##Code%20Architecture)
+    - [HTML](###HTML)
+    - [CSS](###CSS)
+    - [Javascript](###Javascript)
+    - [Branch Features](###Branch20%Features)
+[Challenges & Wins](##Challenges20%&20&Wins)
+    - [Challenges](###Challenges)
+    - [Wins/Reflections](###Wins/Reflections)
+[Functionality](##Functionality)
+    - [App Layout](###App20%Layout)
+    - [Playing The Game](###playing%20the%20game)
+    - [Win or Draw](###declaring%20win%20or%20draw)
+    - [Continuing to Play](###Continuing%20to%20play)
+[Appreciation](##appreciation)
+
+## A Trip Down Memory Lane
   As a child, tic-tac-toe was a game that you could play anywhere or on anything! During long road trips in the car, on a fast food napkin... Or on the chalkboard at school, when the teacher leaves the room. Tic-tac-toe is a classic game for all ages and can become a go to game during spells of boredom.
 
   What a simple game! To the naked eye (or non-software developer), tic-tac-toe seems simple and easy. Just draw a grid, and fill them with "X's" or "O's".
@@ -10,10 +34,10 @@
   I chose to do a Caribbean beach theme as I was inspired by my desire for warmer weather as winter nears, and my brother and I used to play tic-tac-toe in the sand growing up!
 
 ### Contributors
-  - Kevin Hartmann
+  - Kevin Hartmann (solo project)
 
-  _Mentor Review:_ Jeff Duke
-  _Project Manager:_ Scott Ertmer
+  - _Reviewer:_ Jeff Duke (mentor)
+  - _Project Manager:_ Scott Ertmer (instructor)
 
 
 ### Project Goals
@@ -43,59 +67,19 @@ _This project is an important step in demonstrating you are ready to start Modul
 - `git/Github & Github Projects` _workflow and project management_
 - `Atom` _text editor_
 
-### Code Architecture
-#### HTML
+## Code Architecture
+
+### HTML
 I built a basic HTML structure for this project, my goal was to make everything simple and clean... Just like the game of tic-tac-toe. I made sure to use minimal amounts of divs, keep my classes organized, and only use id's when necessary for Javascript.
-#### CSS
+### CSS
 In my CSS you will see that I organized all stylings by section. I applied some general stylings to `HTML` & `Body`, from there I broke each section out by area: `Player-Sidebars` & `Game-Area` (each area is labeled appropriately for better readability). Attempting to keep my CSS "DRY"... I styled elements by classes or tags only, and reduced repetitive styling.
-#### Javascript
+### Javascript
 Breaking out my Javascript code into three files, helped with keeping the game functionality and DOM manipulation entirely separate.
 
-1) `player.js`: _contains code regarding to the player class:_
-  - Created a `Player` class
-      - `constructor` _containing one parameter of `playerId`_
-          - Properties:
-            - `id`: _assigns unique ID to each player_
-            - `token`: _stores the value of players game piece_
-            - `wins` : _number of wins of player_  
-          - Methods:
-            - `saveWins`: _saves `Player` wins to localStorage by ID_
-            - `retrieveWins`: _updates `Player` wins from localStorage_
-            - `resetWins`: _resets `Players` wins to `0` in local localStorage_
-2) `game.js`: _contains code for game functionality and game logic_
-  - Created a `Game` class
-    - `constructor` _containing two parameter of `playerOne` & `playerTwo_
-        - Properties:
-          - `turn`: _default of playerOne_
-          - `turnCount`: _default of `0`, keeping track of move counts_
-          - `possibleMoveValues`: _set to available moves, default being all `9` potential move opportunities_
-          - `playerOne` & `playerTwo`: _default as empty array, storing player move values_
-          - `win` & `draw`: _defaulted to false, changes on game result_
-          - `winner`: _identifies a winner_
-          - `winCombinations`: _stores logic of every possible winning move combinations, set by each square in a tic-tac-toe board as a value of `1-9`_
-        - Methods:
-          - `selectPlayersTurn`:_determines which player turn it is, based of the `turnCount`_
-          - `recordPlayersTurn`: _takes a players move and stores into specific player's move array, and removes that move from  `possibleMoveValues`_
-          - `evaluateWin`: _iterates through win combinations by comparing the players moves array by index of win combinations. As there are 3 indexes in a win combination, each condition statement is set to an index of 0-2. If a value is returned great than or equal to 0, the players moves match with an index from the win combinations. If all 3 match, it is a win!_
-          - `evaluteDraw`: _a little more simple, if all possible moves have been played, and there is no win. It is a draw!_
-          - `checkBoardForWinOrDraw`: _identifying that a win cannot happen before `5` moves, there is no need to check for a win before then. At `5` moves, this method checks for wins and draws simultaneously_
-          - `resetBoard`: _simply resets default values_
-3) `main.js`: _DOM manipulation_
-  - Global Variables:
-    - `querySelectors`
-    - instance of `Game` class
-    - 2 instances of `Player` class
-  - Event Listeners
-  - Functions and Event Handlers
-    - `connectBoardToGame`: _this sets up the user's board to main functionality from `game.js` and is called on page `load`_
-    - `resetWinCount` & `toggleResetWinsButton`: _provides user's with an extra feature. The user can now reset their wins, this allows for new users to play on the same app!_
-    - `clickGrid`: _makes grid clickable, and records users move by connecting the `id` of each child element to the possible moves_
-    - `disableGrid`: _disables clickable feature when a win or draw is detected_
-    - `identifyGameResults`: _checks for wins/draws and displays results to users_
-    - `checkGameForResults`: _identifies if there was a win or draw, and displays message to user based on outcome, after that there is a timeOut that resets the board_
-    - `displayWins`: _updates users view of wins, based on the record kept in local localStorage_
+_More detail on Javascript Architecture can be found [here.](code-architecture.md)_
 
-#### Git Features -
+
+### Branch Features
 - kevinhartmann23-patch-1: _adding PR Template_
 - feature/initial-html: _adding HTML structure_
 - feature/iteration1-css-html: _styling basic comp. note: I did name this feature prior to feedback on feature naming_
@@ -111,7 +95,9 @@ Breaking out my Javascript code into three files, helped with keeping the game f
 - feature/fix-local-storage: _`main.js` ran into localStorage errors, refactored and made functionable_
 - feature/reset-wins-display: _`main.js` ADDED feature, to reset wins on user option_
 
-### Challenges: _Oh boy, where to start...._
+## Challenges & Wins
+
+### Challenges
 - **Game Logic**
   - Taking the time to figure out the game logic, was definitely a puzzle. It was something I enjoyed doing, but took a fair amount of time to apply to that logic to code.
 - **Learning to test my code and data model, without DOM**
@@ -121,7 +107,7 @@ Breaking out my Javascript code into three files, helped with keeping the game f
   - This was my largest struggle, I spent a lot of time trying to make this method work in the `game.js` file. I found myself researching and pseudocoding 10 different ideas of how I could make this work. I started to mix up and confuse each idea or strategy, causing the time spent on this merthod to take up a lot more time than I had hoped for.
   - When using MDN for prototype array methods, I was more focused on finding an answer and moving on. I didn't fully ready or test out the article I was looking at before trying to code with it. For example, I have used `.indexOf()` a fair amount of times before.. but not to its full potential. Having read the MDN information on it in full before trying to make it work would have led me to a working method much, much sooner.
 
-### Wins & Reflections!
+### Wins/Reflections
 - **Completion and additional functionality**
   - At the beginning of this project, I had severe imposter syndrome going on. Being able to work through those thoughts and feeling and provide an end product I am proud of is HUGE for me.
 - **Time & Task Management**
@@ -130,39 +116,41 @@ Breaking out my Javascript code into three files, helped with keeping the game f
 - **Planning & PsuedoCoding**
   - This was the first time I really spent a good amount of time planning. It made a huge difference in my thought process and my productivity.
 
-### Functionality
+## Functionality
 
-#### App Layout
+### App Layout
 _The first task was to build out and match the provided comp, with my own styling preferences_
 
 ![Iteration 0](./assets/functionality-snap-shots/snap1-layout.png)
 
-#### Playing the Game
+### Playing the Game
 _The tic-tac-toe board starts empty, and the message displays which users turn it currently is. As the users take turns selecting a space to place their `🍹` or `🦩` the spaces are filled and disabled on the user's click and their correct game token. After a user has taken their turn, the message will change based on which user's turn it is._
 
 ![User's Moves](./assets/functionality-snap-shots/snap2-turn.png)
 
 _Notice there is a button added... This button is currently disabled, while players are in the middle of their game_
 
-#### Declaring a Win or Draw
+### Declaring a Win or Draw
 _After a win occurs the message declaring which users turn it is, is changed to declaring a user win!_
 
-![WIN!](.assets/functionality-snap-shots/snap3-win.png)
+![WIN](.assets/functionality-snap-shots/snap3-win.png)
 
 _When a win is declared, the user's win count increases and the game resets. The win count for each user remains on the screen after each game and a page refresh. Notice: The reset button has changed colors and is now clickable!_
 
-![more WINS!](/.assets/functionality-snap-shots/snap4-more-wins.png)
+![more WINS](/.assets/functionality-snap-shots/snap4-more-wins.png)
 
-#### Continuing To Play
+### Continuing To Play
 _If a user a new user joins on the same browser, the user has the option of resetting the win counts to even the score! Notice: 🍹's wins have reset to `0` but 🦩's have not!_
 
 ![reset WINS](./assets/functionality-snap-shots/snap5-reset-wins.png)
 
-### Appreciation
-I would like to thank my mentor, for being a sounding board. He not was there to help me work through my struggles, but did not hand me answers for the sake of learning and growing. Thanks Jeff!
+## Appreciation
+I would like to thank my **mentor**, for being a sounding board. He not was there to help me work through my struggles, but did not hand me answers for the sake of learning and growing. Thanks Jeff!
 
-My instructors, for teaching me so much in so little time. 6 weeks ago, I couldn't imagine being able to complete a project like this on my own in a few days.
+My **instructors**, for teaching me so much in so little time. 6 weeks ago, I couldn't imagine being able to complete a project like this on my own in a few days.
 
-My cohort, for being solid people around around and keeping the memes going to lighten up the stress!
+My **cohort**, for being solid people around around and keeping the memes going to lighten up the stress!
 
-Thank you for checking out my repo!
+Last, but not least, **YOU!** Thank you for checking out my repo!
+
+[Back to Top of Page](#Tic-Tac-Toe)
