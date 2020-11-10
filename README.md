@@ -104,24 +104,12 @@ In my CSS you will see that I organized all stylings by section. I applied some 
 ### Javascript
 Breaking out my Javascript code into three files, helped with keeping the game functionality and DOM manipulation entirely separate.
 
-_More detail on Javascript Architecture can be found [here.](code-architecture.md)_
+_More detail on Javascript Architecture can be found [here.](./assets/READMEadd-ons/code-architecture.md)_
 
 
 ### Branch Features
-- kevinhartmann23-patch-1: _adding PR Template_
-- feature/initial-html: _adding HTML structure_
-- feature/iteration1-css-html: _styling basic comp. note: I did name this feature prior to feedback on feature naming_
-- feature/iteration3: _Adding base code for `game.js` & `player.js`note: I did name this feature prior to feedback on feature naming_
-- feature/check-board-for-draw: _`game.js` method for evaluating a draw_
-- feature/checkBorFor-wins: _`game.js` method for evaluating wins_
-- feature/recordPlayersTurn-method: _`game.js` method for recording player move and storing its values_
-- feature/checking-win/draw-state: _`game.js` method to call both wins and draws_
-- feature/populate-board-grid: _`main.js` start to DOM manipulation_
-- feature/reset-grid-after-complete: _`main.js` reset game board after win or draws_
-- feature/displayWins-dom: _`main.js` display wins on browser_
-- feature/disable-moves-after-win: _`main.js` disable game board after a win_
-- feature/fix-local-storage: _`main.js` ran into localStorage errors, refactored and made functionable_
-- feature/reset-wins-display: _`main.js` ADDED feature, to reset wins on user option_
+
+_additional information about branch features can be viewed [here.](./assets/READMEadd-ons/branch-features.md)_
 
 ## Challenges & Wins
 
