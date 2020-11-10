@@ -4,6 +4,7 @@
   font-family: 'Grandstander', cursive;
   font-size: 1em;
   text-align: center;
+  cursor: default;
 }
 
 html {
@@ -31,11 +32,11 @@ main {
   grid-area: sidebar2;
 }
 
-h2 {
+.game-piece {
   font-size: 6.5em;
 }
 
-h3 {
+.win-display {
   font-size: 5em;
   margin-bottom: 20px;
 }
@@ -45,11 +46,15 @@ h3 {
   height: 3em;
   width: 10em;
   background: linear-gradient(#e8d3a3, #ffa633);
+  opacity: .9;
   font-size: 1em;
+  cursor: pointer;
 }
 
-.reset-wins:disabled{
+.reset-wins:disabled {
   background: linear-gradient(#4fb2aa, #e8d3a3);
+  opacity: .45;
+  cursor: not-allowed;
 }
 
 /*~~~~~~Game Area~~~~~~*/
@@ -60,15 +65,15 @@ h3 {
 }
 
 .game-board {
-  height: 500px;
-  width: 500px;
+  height: 5.25em;
+  width: 5.25em;
   margin: auto;
   font-size: 6em;
   background: linear-gradient(#4fb2aa, #e8d3a3, #ffa633);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-gap: .1em;
 }
 
 .game-grid {
@@ -76,21 +81,11 @@ h3 {
   text-align: center;
   display: flex;
   justify-content: space-around;
-  padding: 10px;
+  padding: .1em;
+  cursor: pointer;
 }
 
-h1 {
+.main-message {
   font-size: 3.5em;
-  margin: 75px;
-}
-
-/*Button Styling - Added Feature*/
-
-.reset-wins {
-  border-radius: .5em;
-  height: 3em;
-  width: 10em;
-  background: linear-gradient(#e8d3a3, #ffa633);
-  font-size: 1em;
-  font-family: inherit;
+  margin: 1.25em;
 }
