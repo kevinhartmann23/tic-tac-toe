@@ -65,8 +65,8 @@ main {
 }
 
 .game-board {
-  height: 5.25em;
-  width: 5.25em;
+  height: 5.5em;
+  width: 5.5em;
   margin: auto;
   font-size: 6em;
   background: linear-gradient(#4fb2aa, #e8d3a3, #ffa633);
@@ -81,11 +81,25 @@ main {
   text-align: center;
   display: flex;
   justify-content: space-around;
-  padding: .1em;
+  padding: .12em;
   cursor: pointer;
 }
 
 .main-message {
   font-size: 3.5em;
   margin: 1.25em;
+}
+
+/*~~~~~~Animation~~~~~~*/
+
+.game-piece:hover {
+  transform: rotate(360deg);
+  transition: all 1s ease-in-out .25s;
+}
+
+.win-display:hover,
+.main-message:hover {
+  -webkit-transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  transform: scale(1.25);
 }
