@@ -147,16 +147,16 @@ _Notice there is a button added... This button is currently disabled, while play
 #### Declaring a Win or Draw
 _After a win occurs the message declaring which users turn it is, is changed to declaring a user win!_
 
-![WIN!](./assets/functionality-snap-shots/snap3-win.png)
+![WIN!](.assets/functionality-snap-shots/snap3-win.png)
 
 _When a win is declared, the user's win count increases and the game resets. The win count for each user remains on the screen after each game and a page refresh. Notice: The reset button has changed colors and is now clickable!_
 
-![more WINS!](./assets/functionality-snap-shots/snap4-more-wins.png)
+![more WINS!](/.assets/functionality-snap-shots/snap4-more-wins.png)
 
 #### Continuing To Play
 _If a user a new user joins on the same browser, the user has the option of resetting the win counts to even the score! Notice: 🍹's wins have reset to `0` but 🦩's have not!_
 
-![reset WINS](.assets/functionality-snap-shots/snap5-reset-wins.png)
+![reset WINS](./assets/functionality-snap-shots/snap5-reset-wins.png)
 
 ### Appreciation
 I would like to thank my mentor, for being a sounding board. He not was there to help me work through my struggles, but did not hand me answers for the sake of learning and growing. Thanks Jeff!
