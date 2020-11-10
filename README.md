@@ -95,6 +95,22 @@ Breaking out my Javascript code into three files, helped with keeping the game f
     - `checkGameForResults`: _identifies if there was a win or draw, and displays message to user based on outcome, after that there is a timeOut that resets the board_
     - `displayWins`: _updates users view of wins, based on the record kept in local localStorage_
 
+#### Git Features -
+- kevinhartmann23-patch-1: _adding PR Template_
+- feature/initial-html: _adding HTML structure_
+- feature/iteration1-css-html: _styling basic comp. note: I did name this feature prior to feedback on feature naming_
+- feature/iteration3: _Adding base code for `game.js` & `player.js`note: I did name this feature prior to feedback on feature naming_
+- feature/check-board-for-draw: _`game.js` method for evaluating a draw_
+- feature/checkBorFor-wins: _`game.js` method for evaluating wins_
+- feature/recordPlayersTurn-method: _`game.js` method for recording player move and storing its values_
+- feature/checking-win/draw-state: _`game.js` method to call both wins and draws_
+- feature/populate-board-grid: _`main.js` start to DOM manipulation_
+- feature/reset-grid-after-complete: _`main.js` reset game board after win or draws_
+- feature/displayWins-dom: _`main.js` display wins on browser_
+- feature/disable-moves-after-win: _`main.js` disable game board after a win_
+- feature/fix-local-storage: _`main.js` ran into localStorage errors, refactored and made functionable_
+- feature/reset-wins-display: _`main.js` ADDED feature, to reset wins on user option_
+
 ### Challenges: _Oh boy, where to start...._
 - **Game Logic**
   - Taking the time to figure out the game logic, was definitely a puzzle. It was something I enjoyed doing, but took a fair amount of time to apply to that logic to code.
@@ -141,3 +157,12 @@ _When a win is declared, the user's win count increases and the game resets. The
 _If a user a new user joins on the same browser, the user has the option of resetting the win counts to even the score! Notice: 🍹's wins have reset to `0` but 🦩's have not!_
 
 ![reset WINS](.assets/functionality-snap-shots/snap5-reset-wins.png)
+
+### Appreciation
+I would like to thank my mentor, for being a sounding board. He not was there to help me work through my struggles, but did not hand me answers for the sake of learning and growing. Thanks Jeff!
+
+My instructors, for teaching me so much in so little time. 6 weeks ago, I couldn't imagine being able to complete a project like this on my own in a few days.
+
+My cohort, for being solid people around around and keeping the memes going to lighten up the stress!
+
+Thank you for checking out my repo!
