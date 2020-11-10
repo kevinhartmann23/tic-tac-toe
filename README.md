@@ -4,25 +4,25 @@ _By Kevin Hartmann (2010 Front End)_
 
 
 ## Table of Contents
-[Introduction](##A%20Trip%20Down%20Memory%20Lane)
-    - [Contributors](###Contributors)
-    - [Project Learning Goals](###Project%20Goals)
-    - [Project Expectations](###Project%20Expectations)
-    - [Technologies Used](###Technologies%20Used)
-[Code Architecture & Branch Features](##Code%20Architecture)
-    - [HTML](###HTML)
-    - [CSS](###CSS)
-    - [Javascript](###Javascript)
-    - [Branch Features](###Branch20%Features)
-[Challenges & Wins](##Challenges20%&20&Wins)
-    - [Challenges](###Challenges)
-    - [Wins/Reflections](###Wins/Reflections)
-[Functionality](##Functionality)
-    - [App Layout](###App20%Layout)
-    - [Playing The Game](###playing%20the%20game)
-    - [Win or Draw](###declaring%20win%20or%20draw)
-    - [Continuing to Play](###Continuing%20to%20play)
-[Appreciation](##appreciation)
+1. [Introduction](##A%20Trip%20Down%20Memory%20Lane)
+    1. [Contributors](###Contributors)
+    2. [Project Learning Goals](###Project%20Goals)
+    3. [Project Expectations](###Project%20Expectations)
+    4. [Technologies Used](###Technologies%20Used)
+2. [Functionality](##Functionality)
+    1. [App Layout](###App20%Layout)
+    2. [Playing The Game](###playing%20the%20game)
+    3. [Win or Draw](###declaring%20win%20or%20draw)
+    4. [Continuing to Play](###Continuing%20to%20play)
+3. [Code Architecture & Branch Features](##Code%20Architecture)
+    1. [HTML](###HTML)
+    2. [CSS](###CSS)
+    3. [Javascript](###Javascript)
+    4. [Branch Features](###Branch20%Features)
+4. [Challenges & Wins](##Challenges20%&20&Wins)
+    1. [Challenges](###Challenges)
+    2. [Wins/Reflections](###Wins/Reflections)
+5. [Appreciation](##appreciation)
 
 ## A Trip Down Memory Lane
   As a child, tic-tac-toe was a game that you could play anywhere or on anything! During long road trips in the car, on a fast food napkin... Or on the chalkboard at school, when the teacher leaves the room. Tic-tac-toe is a classic game for all ages and can become a go to game during spells of boredom.
@@ -31,10 +31,10 @@ _By Kevin Hartmann (2010 Front End)_
 
   During the build out of this project, I found that tic-tac-toe has never been so complicated! Through some hard work, research, and logic tic-tac-toe is now available to you anywhere at anytime. No need for writing utensils anymore!
 
-  I chose to do a Caribbean beach theme as I was inspired by my desire for warmer weather as winter nears, and my brother and I used to play tic-tac-toe in the sand growing up!
+  I chose to do a Caribbean beach theme. My desire for warmer weather as winter nears, reminded me of how my brother and I used to play tic-tac-toe in the sand growing up!
 
 ### Contributors
-  - Kevin Hartmann (solo project)
+  - **Kevin Hartmann** _(solo project work)_
 
   - _Reviewer:_ Jeff Duke (mentor)
   - _Project Manager:_ Scott Ertmer (instructor)
@@ -66,6 +66,34 @@ _This project is an important step in demonstrating you are ready to start Modul
 - `Local Storage` _storing user data_
 - `git/Github & Github Projects` _workflow and project management_
 - `Atom` _text editor_
+
+## Functionality
+
+### App Layout
+_The first task was to build out and match the provided comp, with my own styling preferences_
+
+![Iteration 0](./assets/functionality-snap-shots/snap1-layout.png)
+
+### Playing the Game
+_The tic-tac-toe board starts empty, and the message displays which users turn it currently is. As the users take turns selecting a space to place their `🍹` or `🦩` the spaces are filled and disabled on the user's click and their correct game token. After a user has taken their turn, the message will change based on which user's turn it is._
+
+![User's Moves](./assets/functionality-snap-shots/snap2-turn.png)
+
+_Notice there is a button added... This button is currently disabled, while players are in the middle of their game_
+
+### Declaring a Win or Draw
+_After a win occurs the message declaring which users turn it is, is changed to declaring a user win!_
+
+![WIN](./assets/functionality-snap-shots/snap3-win.png)
+
+_When a win is declared, the user's win count increases and the game resets. The win count for each user remains on the screen after each game and a page refresh. Notice: The reset button has changed colors and is now clickable!_
+
+![more WINS](./assets/functionality-snap-shots/snap4-more-wins.png)
+
+### Continuing To Play
+_If a user a new user joins on the same browser, the user has the option of resetting the win counts to even the score! Notice: 🍹's wins have reset to `0` but 🦩's have not!_
+
+![reset WINS](./assets/functionality-snap-shots/snap5-reset-wins.png)
 
 ## Code Architecture
 
@@ -115,34 +143,6 @@ _More detail on Javascript Architecture can be found [here.](code-architecture.m
   - Setting daily goals helped me organize my time and thoughts, and kept me on track and where I want to be.
 - **Planning & PsuedoCoding**
   - This was the first time I really spent a good amount of time planning. It made a huge difference in my thought process and my productivity.
-
-## Functionality
-
-### App Layout
-_The first task was to build out and match the provided comp, with my own styling preferences_
-
-![Iteration 0](./assets/functionality-snap-shots/snap1-layout.png)
-
-### Playing the Game
-_The tic-tac-toe board starts empty, and the message displays which users turn it currently is. As the users take turns selecting a space to place their `🍹` or `🦩` the spaces are filled and disabled on the user's click and their correct game token. After a user has taken their turn, the message will change based on which user's turn it is._
-
-![User's Moves](./assets/functionality-snap-shots/snap2-turn.png)
-
-_Notice there is a button added... This button is currently disabled, while players are in the middle of their game_
-
-### Declaring a Win or Draw
-_After a win occurs the message declaring which users turn it is, is changed to declaring a user win!_
-
-![WIN](.assets/functionality-snap-shots/snap3-win.png)
-
-_When a win is declared, the user's win count increases and the game resets. The win count for each user remains on the screen after each game and a page refresh. Notice: The reset button has changed colors and is now clickable!_
-
-![more WINS](/.assets/functionality-snap-shots/snap4-more-wins.png)
-
-### Continuing To Play
-_If a user a new user joins on the same browser, the user has the option of resetting the win counts to even the score! Notice: 🍹's wins have reset to `0` but 🦩's have not!_
-
-![reset WINS](./assets/functionality-snap-shots/snap5-reset-wins.png)
 
 ## Appreciation
 I would like to thank my **mentor**, for being a sounding board. He not was there to help me work through my struggles, but did not hand me answers for the sake of learning and growing. Thanks Jeff!
