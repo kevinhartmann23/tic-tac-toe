@@ -4,25 +4,11 @@ _By Kevin Hartmann (2010 Front End)_
 
 
 ## Table of Contents
-1. [Introduction](##A%20Trip%20Down%20Memory%20Lane)
-    1. [Contributors](###Contributors)
-    2. [Project Learning Goals](###Project%20Goals)
-    3. [Project Expectations](###Project%20Expectations)
-    4. [Technologies Used](###Technologies%20Used)
-2. [Functionality](##Functionality)
-    1. [App Layout](###App20%Layout)
-    2. [Playing The Game](###playing%20the%20game)
-    3. [Win or Draw](###declaring%20win%20or%20draw)
-    4. [Continuing to Play](###Continuing%20to%20play)
-3. [Code Architecture & Branch Features](##Code%20Architecture)
-    1. [HTML](###HTML)
-    2. [CSS](###CSS)
-    3. [Javascript](###Javascript)
-    4. [Branch Features](###Branch20%Features)
-4. [Challenges & Wins](##Challenges20%&20&Wins)
-    1. [Challenges](###Challenges)
-    2. [Wins/Reflections](###Wins/Reflections)
-5. [Appreciation](##appreciation)
+1. [Introduction](#a-trip-down-memory-lane)
+2. [Functionality](#functionality)
+3. [Code Architecture & Branch Features](#code-architecture)
+4. [Challenges & Wins](#challenges-&-wins)
+5. [Appreciation](#appreciation)
 
 ## A Trip Down Memory Lane
   As a child, tic-tac-toe was a game that you could play anywhere or on anything! During long road trips in the car, on a fast food napkin... Or on the chalkboard at school, when the teacher leaves the room. Tic-tac-toe is a classic game for all ages and can become a go to game during spells of boredom.
@@ -67,6 +53,8 @@ _This project is an important step in demonstrating you are ready to start Modul
 - `git/Github & Github Projects` _workflow and project management_
 - `Atom` _text editor_
 
+[Back to Top of Page](#Tic-Tac-Toe)
+
 ## Functionality
 
 ### App Layout
@@ -94,6 +82,8 @@ _When a win is declared, the user's win count increases and the game resets. The
 _If a user a new user joins on the same browser, the user has the option of resetting the win counts to even the score! Notice: 🍹's wins have reset to `0` but 🦩's have not!_
 
 ![reset WINS](./assets/functionality-snap-shots/snap5-reset-wins.png)
+
+[Back to Top of Page](#Tic-Tac-Toe)
 
 ## Code Architecture
 
@@ -132,6 +122,8 @@ _additional information about branch features can be viewed [here.](./assets/REA
 - **Planning & PsuedoCoding**
   - This was the first time I really spent a good amount of time planning. It made a huge difference in my thought process and my productivity.
 
+[Back to Top of Page](#Tic-Tac-Toe)
+
 ## Appreciation
 I would like to thank my **mentor**, for being a sounding board. He not was there to help me work through my struggles, but did not hand me answers for the sake of learning and growing. Thanks Jeff!
 
@@ -141,4 +133,4 @@ My **cohort**, for being solid people around around and keeping the memes going 
 
 Last, but not least, **YOU!** Thank you for checking out my repo!
 
-[Back to Top of Page](#Tic-Tac-Toe)
+[Back to Top](#Tic-Tac-Toe)
