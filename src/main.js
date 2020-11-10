@@ -19,76 +19,76 @@ resetWinsPlayerTwo.addEventListener("click", resetWinCount);
 //Tic Tac Toe Functions & Event Handlers 👇
 
 function connectBoardToGame() {
-    displayWins();
-    for(var i = 0; i < gameGrid.length; i++){
-      gameGrid[i].addEventListener("click", clickGrid);
-      gameGrid[i].innerText = "";
-    }
-    game.resetBoard();
-    toggleResetWinsButton();
-    game.selectPlayersTurn();
-    gameTitle.innerText = `It's ${game.turn.token}'s turn`;
+  displayWins();
+  for(var i = 0; i < gameGrid.length; i++){
+    gameGrid[i].addEventListener("click", clickGrid);
+    gameGrid[i].innerText = "";
+  }
+  game.resetBoard();
+  toggleResetWinsButton();
+  game.selectPlayersTurn();
+  gameTitle.innerText = `It's ${game.turn.token}'s turn`;
 };
 
 function resetWinCount(event){
-  if(event.target === resetWinsPlayerOne){
+  if (event.target === resetWinsPlayerOne){
     playerOne.resetWins();
     displayWins();
-  }
-  if(event.target === resetWinsPlayerTwo){
+  };
+  if (event.target === resetWinsPlayerTwo){
     playerTwo.resetWins();
     displayWins();
-  }
+  };
 };
 
 function toggleResetWinsButton(){
-  if(game.possibleMoveValues.length === 9){
+  if (game.possibleMoveValues.length === 9){
     resetWinsPlayerOne.disabled = false;
     resetWinsPlayerTwo.disabled = false;
   } else {
     resetWinsPlayerOne.disabled = true;
     resetWinsPlayerTwo.disabled = true;
-  }
+  };
 };
 
 function clickGrid(event){
-  if(event.target.closest(".game-board")){
-    for(var i = 0; i < gameGrid.length; i++){
+  if (event.target.closest(".game-board")){
+    for (var i = 0; i < gameGrid.length; i++){
       var matchIdToMove = i + 1;
-      if(parseInt(event.target.closest("div").id) == matchIdToMove){
+      if (parseInt(event.target.closest("div").id) === matchIdToMove){
         gameGrid[i].innerText = `${game.turn.token}`;
         gameGrid[i].removeEventListener("click", clickGrid);
         game.recordPlayersTurn(matchIdToMove);
-      }
-    }
+      };
+    };
   };
   gameTitle.innerText = `It's ${game.turn.token}'s turn`;
   checkGameForResults();
 };
 
 function disableGrid(){
-  for(var i = 0; i < gameGrid.length; i++){
+  for (var i = 0; i < gameGrid.length; i++){
     gameGrid[i].removeEventListener("click", clickGrid);
-  }
+  };
 };
 
 function identifyGameResults(){
-  if(game.win === true){
+  if (game.win === true){
     gameTitle.innerText = `${game.winner.token} wins!`;
   };
-  if(game.draw === true){
+  if (game.draw === true){
     gameTitle.innerText = `It's a draw!`;
-  }
+  };
 };
 
 function checkGameForResults(){
   toggleResetWinsButton();
-  if((game.win === true) || (game.draw === true)){
+  if ((game.win === true) || (game.draw === true)){
     var displayResults = setTimeout(connectBoardToGame, 2500);
     disableGrid();
     displayWins();
     identifyGameResults();
-  }
+  };
 };
 
 function displayWins(){
