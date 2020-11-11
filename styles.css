@@ -10,6 +10,7 @@
 html {
   height: 100vh;
   background-image: url('./assets/background-palm-trees.jpg');
+  background-color: #83dce5;
   background-repeat: no-repeat;
   background-size: 100% 110%;
 }
@@ -33,12 +34,14 @@ main {
 }
 
 .game-piece {
+  margin: .5em;
   font-size: 6.5em;
 }
 
 .win-display {
   font-size: 5em;
-  margin-bottom: 20px;
+  margin-top: .5em;
+  margin-bottom: .125em;
 }
 
 .reset-wins {
@@ -85,16 +88,27 @@ main {
   cursor: pointer;
 }
 
+.main-heading {
+  color: #4fb2aa;
+}
+
+.main-heading,
 .main-message {
-  font-size: 3.5em;
-  margin: 1.25em;
+  height: 1em;
+  font-size: 3.75em;
+  margin: .25em;
+}
+
+.main-message {
+  font-size: 2.75em;
+  margin-bottom: 1.25em;
 }
 
 /*~~~~~~Animation~~~~~~*/
 
 .game-piece:hover {
   transform: rotate(360deg);
-  transition: all 1s ease-in-out .25s;
+  transition: all 1s ease-in-out .1ß25s;
 }
 
 .win-display:hover,
