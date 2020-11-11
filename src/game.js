@@ -1,8 +1,8 @@
 class Game {
   constructor(playerOne, playerTwo){
-    this.turn = playerOne || playerTwo;
+    this.currentPlayer = playerOne || playerTwo;
     this.turnCount = 0;
-    this.possibleMoveValues = [1,2,3,4,5,6,7,8,9]
+    this.openSpaces = [1,2,3,4,5,6,7,8,9]
     playerOne.moves = [];
     playerTwo.moves = [];
     this.win = false;
@@ -21,12 +21,7 @@ class Game {
     ];
   };
 
-selectPlayersTurn(){
-  if (this.turnCount %2 === 0){
-    this.turn = playerOne;
-  } else {
-    this.turn = playerTwo;
-  };
+setTurnCount(){
   if (this.turnCount <= 8){
     this.turnCount ++;
   } else {
@@ -34,12 +29,22 @@ selectPlayersTurn(){
   };
 };
 
+selectPlayersTurn(){
+  if (this.turnCount %2 === 0){
+    this.currentPlayer = playerOne;
+  } else {
+    this.currentPlayer = playerTwo;
+  };
+  this.setTurnCount();
+};
+
+
 recordPlayersTurn(selectedMove){
-  var player = this.turn;
-  for (var i = 0; i < this.possibleMoveValues.length; i++){
-    if (this.possibleMoveValues.includes(selectedMove)){
+  var player = this.currentPlayer;
+  for (var i = 0; i < this.openSpaces.length; i++){
+    if (this.openSpaces.includes(selectedMove)){
       player.moves.push(selectedMove);
-      this.possibleMoveValues.splice(this.possibleMoveValues.indexOf(selectedMove), 1);
+      this.openSpaces.splice(this.openSpaces.indexOf(selectedMove), 1);
       }
     };
   this.checkBoardForWinOrDraw(player);
@@ -48,44 +53,47 @@ recordPlayersTurn(selectedMove){
 
 evaluateWin(player){
   for (var i = 0; i < this.winCombinations.length; i++){
-    if ((player.moves.indexOf(this.winCombinations[i][0])) >= 0) {
-      if ((player.moves.indexOf(this.winCombinations[i][1])) >= 0){
-        if ((player.moves.indexOf(this.winCombinations[i][2])) >= 0){
-          this.win = true;
-          this.winner = player;
-          player.wins ++;
-        } else {
-          this.win;
-        }
-      }
+    if ((player.moves.includes(this.winCombinations[i][0]))
+    && (player.moves.includes(this.winCombinations[i][1]))
+    && (player.moves.includes(this.winCombinations[i][2]))){
+      this.win = true;
+      this.declareWin(player);
     }
   };
 };
 
+declareWin(player){
+  if(this.win = true){
+    this.winner = player;
+    player.wins++;
+    player.saveWins();
+  }
+}
+
 evaluteDraw(){
-  if ((this.possibleMoveValues.length === 0) && (this.win === false)){
+  if ((this.openSpaces.length === 0) && (this.win === false)){
     this.draw = true;
   }
 };
 
 checkBoardForWinOrDraw(player){
-  player = this.turn;
+  player = this.currentPlayer;
   if (this.turnCount >= 5){
     this.evaluateWin(player);
     this.evaluteDraw();
   }
-  player.saveWins();
 };
 
 
 resetBoard(){
-  this.turn = playerOne || playerTwo;
+  this.currentPlayer = playerOne || playerTwo;
   this.turnCount = 0;
-  this.possibleMoveValues = [1,2,3,4,5,6,7,8,9];
+  this.openSpaces = [1,2,3,4,5,6,7,8,9]
   playerOne.moves = [];
   playerTwo.moves = [];
   this.win = false;
   this.draw = false;
+  this.selectPlayersTurn();
 };
 
 };
