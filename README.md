@@ -1,4 +1,4 @@
-# Tic-Tac-Toe
+# 🏝 Tic-Tac-Tropical 🏝
 ### Turing School - Mod1 Final Solo Project
 _By Kevin Hartmann (2010 Front End)_
 
