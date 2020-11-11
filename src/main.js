@@ -10,7 +10,7 @@ var resetWinsPlayerTwoButton= document.querySelector(".reset-player-two");
 
 var playerOne = new Player(1);
 var playerTwo = new Player(2);
-var game = new Game(playerOne, playerTwo);
+var game = new Game(new Player(1), new Player(2));
 
 //Tic Tac Toe Event Listeners 👇
 
@@ -28,8 +28,7 @@ function connectBoardToGame() {
   }
   game.resetBoard();
   toggleResetWinsButton();
-  game.selectPlayersTurn();
-  gameTitle.innerText = `It's ${game.turn.token}'s turn`;
+  gameTitle.innerText = `It's ${game.currentPlayer.token}'s turn`;
 };
 
 function resetWinCount(event){
@@ -44,27 +43,23 @@ function resetWinCount(event){
 };
 
 function toggleResetWinsButton(){
-  if (game.possibleMoveValues.length === 9){
-    resetWinsPlayerOneButton.disabled = false;
-    resetWinsPlayerTwoButton.disabled = false;
-  } else {
-    resetWinsPlayerOneButton.disabled = true;
-    resetWinsPlayerTwoButton.disabled = true;
-  };
+  var toggleState = (game.openSpaces.length !== 9)
+    resetWinsPlayerOneButton.disabled = toggleState;
+    resetWinsPlayerTwoButton.disabled = toggleState;
 };
 
 function clickGrid(event){
   if (event.target.closest(".game-board")){
     for (var i = 0; i < gameGrid.length; i++){
       var matchIdToMove = i + 1;
-      if (parseInt(event.target.closest("div").id) === matchIdToMove){
-        gameGrid[i].innerText = `${game.turn.token}`;
+      if (parseInt(event.target.id) === matchIdToMove){
+        gameGrid[i].innerText = `${game.currentPlayer.token}`;
         gameGrid[i].removeEventListener("click", clickGrid);
         game.recordPlayersTurn(matchIdToMove);
       };
     };
   };
-  gameTitle.innerText = `It's ${game.turn.token}'s turn`;
+  gameTitle.innerText = `It's ${game.currentPlayer.token}'s turn`;
   checkGameForResults();
 };
 

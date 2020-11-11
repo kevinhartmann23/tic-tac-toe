@@ -1,7 +1,7 @@
 *,
 *:after,
 *:before {
-  font-family: 'Grandstander', cursive;
+  font-family: 'Grandstander', sans-serif;
   font-size: 1em;
   text-align: center;
   cursor: default;
@@ -60,7 +60,7 @@ main {
 /*~~~~~~Game Area~~~~~~*/
 
 .game-area {
-  background-color: white;
+  background-color: #ffffff;
   grid-area: gamebox;
 }
 
@@ -77,7 +77,7 @@ main {
 }
 
 .game-grid {
-  background-color: white;
+  background-color: #ffffff;
   text-align: center;
   display: flex;
   justify-content: space-around;
