@@ -108,7 +108,7 @@ main {
 
 .game-piece:hover {
   transform: rotate(360deg);
-  transition: all 1s ease-in-out .1ß25s;
+  transition: all 1s ease-in-out .125s;
 }
 
 .win-display:hover,
